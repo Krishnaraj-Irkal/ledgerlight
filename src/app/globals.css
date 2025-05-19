@@ -1,42 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;800&display=swap');
+@import "tailwindcss";
+
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-color: #1a1a1a;
+  --card-color: #1f1f1f;
+  --shadow-light: rgba(255,255,255,0.05);
+  --shadow-dark: rgba(0,0,0,0.7);
+  --text-color: #ffffff;
+  --highlight: #0066ff;
+  --font-primary: 'Montserrat', sans-serif;
+  --font-secondary: 'Poppins', sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
+html, body {
   padding: 0;
   margin: 0;
+  font-family: var(--font-primary);
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* 4. Neumorphic card utility */
+.neumorphic {
+  background: var(--card-color);
+  border-radius: 1.5rem;
+  box-shadow:
+    8px 8px 16px var(--shadow-dark),
+   -8px -8px 16px var(--shadow-light);
+}
+
+/* 5. Headings & links */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-secondary);
+  font-weight: 700;
+  color: var(--text-color);
 }
 
 a {
-  color: inherit;
+  /* color: var(--highlight); */
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+button, .btn {
+  font-family: var(--font-secondary);
+  font-weight: 600;
+  background: var(--highlight);
+  color: #fff;
+  border: none;
+  border-radius: 1rem;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  box-shadow:
+    4px 4px 8px var(--shadow-dark),
+   -4px -4px 8px var(--shadow-light);
+  transition: transform 0.1s ease;
 }
+button:hover {
+  transform: translateY(-2px);
+}
+
+/* 6. Form inputs */
+input, select, textarea {
+  background: var(--card-color);
+  border: none;
+  border-radius: 1rem;
+  padding: 0.75rem 1rem;
+  color: var(--text-color);
+  box-shadow:
+    inset 4px 4px 8px var(--shadow-dark),
+    inset -4px -4px 8px var(--shadow-light);
+}
+input:focus, textarea:focus, select:focus {
+  outline: 2px solid var(--highlight);
+}
+
